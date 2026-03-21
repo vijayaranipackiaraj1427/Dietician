@@ -1,0 +1,29 @@
+{
+  "name": "dietician",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vijayaranipackiaraj1427/Dietician.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/vijayaranipackiaraj1427/Dietician/issues"
+  },
+  "homepage": "https://github.com/vijayaranipackiaraj1427/Dietician#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.58.2",
+    "@types/node": "^25.5.0"
+  },
+  "dependencies": {
+    "@cucumber/cucumber": "^12.7.0",
+    "allure-commandline": "^2.38.1",
+    "allure-playwright": "^3.6.0",
+    "playwright-bdd": "^8.5.0"
+  }
+}
