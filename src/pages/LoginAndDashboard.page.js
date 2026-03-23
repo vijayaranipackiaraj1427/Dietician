@@ -1,6 +1,8 @@
 const { expect } = require('@playwright/test')
 const config = require('../config/config');
 
+const logger = require('../utils/logger');
+
 class LoginAndDashboardPage{
 
   constructor(page) {
@@ -9,7 +11,8 @@ class LoginAndDashboardPage{
 
 async navigateToLoginPage(){
 
-  await this.page.goto(`${config.baseURL}/practice-test-login`);       
+  await this.page.goto(`${config.baseURL}/practice-test-login`);  
+  logger.info('url loaded and navigated to login page')     
   
   //await this.page.goto('/practice-test-login/');
 
@@ -22,6 +25,7 @@ async navigateToLoginPage(){
 
         //await expect(this.page.getByText(expectedTitle, { exact: true })).toBeVisible();
         await expect(this.page.getByAltText(expectedTitle, { exact: true})).toBeVisible();
+       logger.info(`Validating navigation bar text: ${expectedTitle}`);
         
     }
 

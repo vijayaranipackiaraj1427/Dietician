@@ -14,7 +14,6 @@
     "test": "cucumber-js",
     "report": "node src/utils/report.js",
     "test:report": "cucumber-js && node src/utils/report.js"
-  
   },
   "repository": {
     "type": "git",
@@ -40,6 +39,7 @@
     "allure-playwright": "^3.6.0",
     "dotenv": "^17.3.1",
     "multiple-cucumber-html-reporter": "^3.10.0",
-    "playwright-bdd": "^8.5.0"
+    "playwright-bdd": "^8.5.0",
+    "winston": "^3.19.0"
   }
 }

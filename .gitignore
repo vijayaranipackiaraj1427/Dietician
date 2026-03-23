@@ -1,0 +1,16 @@
+# Logs
+logs/
+
+# Reports
+reports/
+allure-results/
+allure-report/
+
+# Screenshots
+screenshots/
+
+# Node modules
+node_modules/
+
+# Optional (recommended)
+.env

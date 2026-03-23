@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-<testsuite name="Cucumber" time="2.826" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-03-23T20:25:01.136Z">
-  <testcase classname="Login page UI verification" name="Navigation bar text visibility" time="2.817">
-    <system-out><![CDATA[Given User is on the browser................................................passed
-When user enters app url....................................................passed
-Then User should see the text "Practice Test Automation" on left side of Navigation bar..passed]]></system-out>
-  </testcase>
-</testsuite>
