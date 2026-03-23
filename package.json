@@ -4,9 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "clean:reports": "rmdir /s /q reports\\json 2>nul & rmdir /s /q reports\\html 2>nul & rmdir /s /q reports\\junit 2>nul & rmdir /s /q allure-results 2>nul & rmdir /s /q allure-report 2>nul & mkdir reports\\json reports\\html reports\\junit",
+    "test:cucumber": "npx cucumber-js --profile default",
+    "test:loginDashboard": "npx cucumber-js --profile loginAndDashboard",
+    "report:cucumber:custom": "node src/utils/report.js",
+    "report:allure:generate": "npx allure generate allure-results --clean -o allure-report",
+    "report:allure:open": "npx allure open allure-report",
+    "test:loginDashboard:report": "npm run clean:reports && npx cucumber-js --profile loginAndDashboard && node src/utils/report.js && npx allure generate allure-results --clean -o allure-report",
     "test": "cucumber-js",
-  "report": "node reports/report.js",
-  "test:report": "cucumber-js && node reports/report.js"
+    "report": "node src/utils/report.js",
+    "test:report": "cucumber-js && node src/utils/report.js"
+  
   },
   "repository": {
     "type": "git",
@@ -21,13 +29,16 @@
   },
   "homepage": "https://github.com/vijayaranipackiaraj1427/Dietician#readme",
   "devDependencies": {
+    "@cucumber/cucumber": "^12.7.0",
     "@playwright/test": "^1.58.2",
-    "@types/node": "^25.5.0"
+    "@types/node": "^25.5.0",
+    "allure-commandline": "^2.38.1",
+    "allure-cucumberjs": "^3.6.0",
+    "cucumber-html-reporter": "^7.2.0"
   },
   "dependencies": {
-    "@cucumber/cucumber": "^12.7.0",
-    "allure-commandline": "^2.38.1",
     "allure-playwright": "^3.6.0",
+    "dotenv": "^17.3.1",
     "multiple-cucumber-html-reporter": "^3.10.0",
     "playwright-bdd": "^8.5.0"
   }
