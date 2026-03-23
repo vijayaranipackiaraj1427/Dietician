@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "cucumber-js",
+  "report": "node reports/report.js",
+  "test:report": "cucumber-js && node reports/report.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vijayaranipackiaraj1427/Dietician.git"
@@ -24,6 +28,7 @@
     "@cucumber/cucumber": "^12.7.0",
     "allure-commandline": "^2.38.1",
     "allure-playwright": "^3.6.0",
+    "multiple-cucumber-html-reporter": "^3.10.0",
     "playwright-bdd": "^8.5.0"
   }
 }
