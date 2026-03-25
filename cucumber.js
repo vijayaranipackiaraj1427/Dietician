@@ -10,7 +10,7 @@ module.exports = {
     paths: ["src/features/*.feature"],
     format: [
       "progress",
-      "json:reports/json/cucumber_report.json"  // ✅ IMPORTANT
+      "json:reports/json/cucumber_report.json"  
     ]
   },
 
@@ -39,6 +39,40 @@ module.exports = {
 
   }
 
-}
+},
+ addPatient: {
+    require: [
+      "src/steps/addPatientSteps.js",
+      "src/hooks/hooks.js"
+    ],
+
+    paths: [
+      "src/features/addPatient.feature"
+    ],
+    tags: "@addPatient",
+
+    format: [
+      "progress",
+
+      "json:reports/json/addPatient_report.json",
+      "html:reports/html/addPatient_report.html",
+      "junit:reports/junit/addPatient_junit.xml",
+
+      "allure-cucumberjs/reporter"
+    ],
+
+    formatOptions: {
+      resultsDir: "allure-results"
+    },
+
+    // retry failed scenarios 
+    retry: 1,
+     parallel: 2  
+
+    // fail fast 
+    // failFast: true
+  }
+
+
 
 };
