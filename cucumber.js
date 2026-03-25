@@ -11,7 +11,10 @@ module.exports = {
     format: [
       "progress",
       "json:reports/json/cucumber_report.json"  
-    ]
+    ],
+    retry: 1,
+     parallel: 2  
+
   },
 
   //run only specific features 
@@ -72,7 +75,6 @@ module.exports = {
     // fail fast 
     // failFast: true
   }
-
 
 
 };

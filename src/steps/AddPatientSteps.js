@@ -3,8 +3,8 @@ const AddPatientDialogboxPage = require('../pages/AddPatientPage.js');
 
 let addPatient;
 
-Given('User is in Home Page', async function () {
-    addPatient = new AddPatientDialogboxPage(this.page);   // passing page
+Given('User is in Home Page', async function (page) {
+    addPatient = new AddPatientDialogboxPage(page);   // passing page
     await addPatient.navigateToHome();
 });
 
