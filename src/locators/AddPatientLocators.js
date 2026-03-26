@@ -10,13 +10,24 @@ module.exports = {
 
     dob: '#dob',
 
-    upload: '#file-upload',
+    fileUpload: '#file-upload',
 
     uploadText: '#upload-text',
 
-    noFile: '#no-file',
+    noFileText: '#no-file',
 
-    submit: '#submit-btn',
+    submitBtn: '#submit-btn',
+    inputByPlaceholder:'#input-placeholder',
+    inputOptionalField:'#input-optionalfield',
 
-    close: '#close-btn'
+    closeBtn: '#close-btn',
+    scrollBar: '#scroll-bar',
+    dropdownByText:'#dropdown-text',
+
+     dropdowns: {
+    allergy: '#allergy',
+    foodPreference: '#foodPreference',
+    cuisine: '#cuisine'
+  },
+    
 };

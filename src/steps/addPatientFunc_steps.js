@@ -1,11 +1,11 @@
-const { Given, When, Then } = require('@cucumber/cucumber');
-const { expect } = require('@playwright/test');
+// const { Given, When, Then } = require('@cucumber/cucumber');
+// const { expect } = require('@playwright/test');
 
-const locators = require('../testdata/addPatientFuncLocators');
-const testdata = require('../testdata/addPatientFuncData');
-const AddPatientFuncPage = require('../pages/AddPatientFuncPage');
+// const locators = require('../Locators/addPatientFuncLocators');
+// const testdata = require('../testdata/addPatientFuncData');
+// const AddPatientFuncPage = require('../pages/AddPatientFuncPage');
 
-let pageObj;
+// let pageObj;
 
 
 // When('User enters valid values in all field', async function () {

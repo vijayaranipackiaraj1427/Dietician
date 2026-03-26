@@ -36,11 +36,15 @@ module.exports = {
       //"./allure.config.js"
       //path.resolve("allure.config.js")  //plugs allure into run  => remove this as  on windows -> D:\PlayWright_NumpyNinja\Dietician\allure.config.js
     ],
+     retry: 1,
+     parallel: 2  ,
 
     formatOptions: {
     resultsDir: "allure-results"
+    
 
   }
+  
 
 },
  addPatient: {
@@ -72,8 +76,6 @@ module.exports = {
     retry: 1,
      parallel: 2  
 
-    // fail fast 
-    // failFast: true
   }
 
 

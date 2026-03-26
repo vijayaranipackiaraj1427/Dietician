@@ -3,6 +3,7 @@ const locators = require('../locators/AddPatientLocators.js');
 const config = require('../config/config.js');
 const { count } = require('node:console');
 
+
 class AddPatientPage {
     constructor(page) {
         this.page = page;
@@ -26,13 +27,13 @@ class AddPatientPage {
     }
 
     async verifyDropdownCount() {
-        const count = await this.page.locator(locators.dropdownFields).count();
+        const count = await this.page.locator(locators.dropdowns ).count();
         expect(count).toBe(3);
     }
 
     async verifyDOBField() {
-        await expect(this.page.locator(locators.dobField)).toBeVisible();
-        await expect(this.page.locator(locators.dobField)).toHaveAttribute('placeholder', 'MM/DD/YYYY');
+        await expect(this.page.locator(locators.dob)).toBeVisible();
+        await expect(this.page.locator(locators.dob)).toHaveAttribute('placeholder', 'MM/DD/YYYY');
     }
 
     async verifyFileUpload() {
@@ -76,7 +77,7 @@ class AddPatientPage {
     }
 
     async verifyScrollBar() {
-        await expect(this.page.locator(locators.dialog)).toBeVisible();
+        await expect(this.page.locator(locators.scrollBar)).toBeVisible();
     }
 
 

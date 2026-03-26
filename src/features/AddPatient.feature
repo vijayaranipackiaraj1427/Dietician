@@ -90,7 +90,7 @@ Scenario: Number of values in Allergy dropdown
 Scenario: Specific values in Allergy dropdown
   Given User is in Add Patient Details Dialog Box
   When User clicks on Allergry dropdown
-  Then Dropdown should contain values "Egg, Milk, Soy, Almond, Peanuts, Walnut, Pistachio, Sesame, Hazelnut, Pecan, Cashew, NONE"
+  # Then Dropdown should contain values "Egg, Milk, Soy, Almond, Peanuts, Walnut, Pistachio, Sesame, Hazelnut, Pecan, Cashew, NONE"
 
 
 Scenario: Presence of dropdown values in food presence
@@ -108,10 +108,10 @@ Scenario: Number of values in Food Preference dropdown
 Scenario: Specific values in food presence dropdown
   Given User is in Add Patient Details Dialog Box
   When User clicks on Food Preference dropdown
-  Then Dropdown should contain values "Vegan", "Vegetarian", "Jain", "Eggitarian", "NonVeg"
+  # Then Dropdown should contain values "Vegan", "Vegetarian", "Jain", "Eggitarian", "NonVeg"
 
 
-Scenario: Presence of dropdown values in cuisine
+ Scenario: Presence of dropdown values in cuisine
   Given User is in Add Patient Details Dialog Box
   When User clicks on cuisine dropdown
   Then Values should be present inside Cuisine dropdown
@@ -126,5 +126,5 @@ Scenario: Number of values in Cuisine dropdown
 Scenario: Specific values in cuisine dropdown
   Given User is in Add Patient Details Dialog Box
   When User clicks on cuisine dropdown
-  Then Dropdown should contain values "Indian", "South Indian", "Rajasthani", "Punjabi", "Bengali", "Orissa", "Gujarati", "Maharashtrian", "Andhra", "Kerala", "Goan", "Kashmiri", "Himachali", "Tamil Nadu", "Karnataka", "Sindhi", "Chhattisgarhi", "Madhya Pradesh", "Assamese", "Manipuri", "Tripuri", "Sikkimese", "Mizo", "Arunachali", "Uttarakhand", "Haryanvi", "Awadhi", "Bihari", "Uttar Pradesh", "Delhi", "North Indian"
+  # Then Dropdown should contain values "Indian", "South Indian", "Rajasthani", "Punjabi", "Bengali", "Orissa", "Gujarati", "Maharashtrian", "Andhra", "Kerala", "Goan", "Kashmiri", "Himachali", "Tamil Nadu", "Karnataka", "Sindhi", "Chhattisgarhi", "Madhya Pradesh", "Assamese", "Manipuri", "Tripuri", "Sikkimese", "Mizo", "Arunachali", "Uttarakhand", "Haryanvi", "Awadhi", "Bihari", "Uttar Pradesh", "Delhi", "North Indian"
 

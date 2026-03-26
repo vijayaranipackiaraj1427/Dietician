@@ -1,11 +1,13 @@
 const { Given, When, Then } = require('@cucumber/cucumber');
 const AddPatientPage = require('../pages/AddPatientPage.js');
+ const testdata = require('../testdata/addPatientData');
+
 
 let addPatient;
 
 Given('User is in Home Page', async function (page) {
     addPatient = new AddPatientPage(page);   // passing page
-    await addPatient.navigateToHome();
+    await addPatient.navigateToHome();       
 });
 
 When('User clicks on New Patient in the header section', async function () {
