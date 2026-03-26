@@ -66,12 +66,12 @@
 //   await this.browser.close();
 // });
 
-
 //version3 
 
 const { Before, After, BeforeAll, AfterAll, Status } = require('@cucumber/cucumber');
 const { chromium } = require('playwright');
 const logger = require('../utils/logger');
+const path = require('path');
 
 let browser;
 
@@ -85,8 +85,6 @@ Before(async function (scenario) {
   this.context = await browser.newContext();
   this.page = await this.context.newPage();
 });
-
-
 
 After(async function (scenario) {
   if (scenario.result?.status === Status.FAILED) {
@@ -104,6 +102,14 @@ After(async function (scenario) {
   await this.context.close();
 });
 
+
+AfterAll(async function () {
+  logger.info('Ending test execution');
+  await browser.close();
+});
+
+
+
 // After(async function (scenario) {
 //   if (scenario.result?.status === Status.FAILED) {
 //     logger.error(`Scenario failed: ${scenario.pickle.name}`);
@@ -114,8 +120,3 @@ After(async function (scenario) {
 //   await this.page.close();
 //   await this.context.close();
 // });
-
-AfterAll(async function () {
-  logger.info('Ending test execution');
-  await browser.close();
-});

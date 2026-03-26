@@ -39,7 +39,7 @@ Feature: Login page UI verification
     Then Username and Password labels should be left-aligned above their respective input fields
 
   Scenario: Total number of input fields
-    Then User should see exactly two input field
+    Then User should see exactly two input fields
 
   Scenario: Login button enabled state
     Then User should see login button enabled

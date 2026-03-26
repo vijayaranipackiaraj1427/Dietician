@@ -76,6 +76,30 @@ Then('Password input field should be visible', async function () {
     logger.info('Login Button is displayed');
  
           });
-
 //TC10
+Then('Login button should be displayed with a blue-purple background and white text', async function () {
+  logger.info('Verifying - Username and Password label alignment');
+  await this.loginAndDashboardPage.verifyLoginBtnColorAndStyle();
+});
+
+//TC11
+Then('Username and Password labels should be left-aligned above their respective input fields', async function () {
+  logger.info('Verifying - Login button color and styling');
+  await this.loginAndDashboardPage.verifyInputFieldLabelAlignment();
+});
+
+//TC12
+Then('User should see exactly two input fields', async function(){
+   logger.info('Verifying - Total number of input fields');
+  await this.loginAndDashboardPage.verifyInputFieldsCount();
+})
+
+//TC13
+Then('User should see login button enabled', async function () {
+  logger.info('Verifying - Login button is enabled');
+  await this.loginAndDashboardPage.verifyLoginBtnEnabled();
+});
+
+
+
 
