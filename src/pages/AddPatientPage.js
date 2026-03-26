@@ -1,6 +1,7 @@
 const { expect } = require('@playwright/test');
 const locators = require('../locators/AddPatientLocators.js');
 const config = require('../config/config.js');
+const { count } = require('node:console');
 
 class AddPatientPage {
     constructor(page) {
@@ -16,26 +17,26 @@ class AddPatientPage {
     }
 
     async verifyDialogBox() {
-        await expect(page.locator(locators.dialogBox)).toBeVisible();
+        await expect(this.page.locator(locators.dialog)).toBeVisible();
     }
 
     async verifyInputCount() {
-        const count = await page.locator(locators.inputFields).count();
+        const count = await this.page.locator(locators.inputFields).count();
         expect(count).toBe(9);
     }
 
     async verifyDropdownCount() {
-        const count = await page.locator(locators.dropdownFields).count();
+        const count = await this.page.locator(locators.dropdownFields).count();
         expect(count).toBe(3);
     }
 
     async verifyDOBField() {
-        await expect(page.locator(locators.dobField)).toBeVisible();
-        await expect(page.locator(locators.dobField)).toHaveAttribute('placeholder', 'MM/DD/YYYY');
+        await expect(this.page.locator(locators.dobField)).toBeVisible();
+        await expect(this.page.locator(locators.dobField)).toHaveAttribute('placeholder', 'MM/DD/YYYY');
     }
 
     async verifyFileUpload() {
-        await expect(page.locator(locators.fileUpload)).toBeVisible();
+        await expect(this.page.locator(locators.fileUpload)).toBeVisible();
     }
 
  async verifySubmitButton() {
@@ -77,6 +78,65 @@ class AddPatientPage {
     async verifyScrollBar() {
         await expect(this.page.locator(locators.dialog)).toBeVisible();
     }
+
+
+//click dropdowns
+async clickAllergyDropdown() {
+    await this.page.click(locators.dropdowns.allergy);
+  }
+
+  async clickFoodPreferenceDropdown() {
+    await this.page.click(locators.dropdowns.foodPreference);
+  }
+
+  async clickCuisineDropdown() {
+    await this.page.click(locators.dropdowns.cuisine);
+  }
+
+  //Dropdown values check
+ async getAllergyDropdownValues() {
+  return await this.page.$$eval(
+    this.locators.dropdowns.allergy + ' option',
+    options => options.map(option => option.textContent)
+  );
+}
+async getFoodPreferenceDropdownValues() {
+  return await this.page.$$eval(
+    this.locators.dropdowns.foodPreference + ' option',
+    options => options.map(option => option.textContent)
+  );
 }
 
+async getCuisineDropdownValues() {
+  return await this.page.$$eval(
+    this.locators.dropdowns.cuisine + ' option',
+    options => options.map(option => option.textContent)
+  );
+}
+
+//Dropdown count
+
+async getAllergyDropdownCount() {
+  const count = await this.page.$$eval(
+    this.locators.dropdowns.allergy + ' option',
+    options => options.length
+  );
+  return count;
+}
+async getFoodDropdownCount() {
+  const values = await this.page.$$eval(
+    this.locators.dropdowns.foodPreference + ' option',
+    options => options.length
+  );
+  return count;
+}
+async getCuisineDropdownCount() {
+  const count = await this.page.$$eval(
+    this.locators.dropdowns.cuisine + ' option',
+    options => options.length
+  );
+  return count;
+}
+
+}          
 module.exports = AddPatientPage;

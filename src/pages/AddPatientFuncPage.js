@@ -1,29 +1,19 @@
+const { expect } = require('@playwright/test');
 const locators = require('../locators/addPatientFuncLocators.js');
+const config = require('../config/config.js');
 
 class AddPatientFuncPage {
   constructor(page) {
     this.page = page;
-    this.locators = locators;
   }
 
   async navigate(url) {
     await this.page.goto(url);
   }
 
-  async clickAllergyDropdown() {
-    await this.page.click(this.locators.dropdowns.allergy);
-  }
-
-  async clickFoodPreferenceDropdown() {
-    await this.page.click(this.locators.dropdowns.foodPreference);
-  }
-
-  async clickCuisineDropdown() {
-    await this.page.click(this.locators.dropdowns.cuisine);
-  }
-
+  
   async getDropdownValues() {
-    return await this.page.locator(this.locators.dropdownValues).allTextContents();
+    return await this.page.locator(locators.dropdownValues).allTextContents();
   }
 
   async selectValue(value) {
@@ -31,38 +21,70 @@ class AddPatientFuncPage {
   }
 
   async fillForm(data) {
-    await this.page.fill(this.locators.fields.firstname, data.firstname);
-    await this.page.fill(this.locators.fields.lastname, data.lastname);
-    await this.page.fill(this.locators.fields.email, data.email);
-    await this.page.fill(this.locators.fields.contact, data.contact);
+    await this.page.fill(locators.fields.firstname, data.firstname);
+    await this.page.fill(locators.fields.lastname, data.lastname);
+    await this.page.fill(locators.fields.email, data.email);
+    await this.page.fill(locators.fields.contact, data.contact);
   }
 
   async clickSubmit() {
-    await this.page.click(this.locators.buttons.submit);
+    await this.page.click(locators.buttons.submit);
   }
 
   async getSuccess() {
-    return this.page.locator(this.locators.messages.success);
+    return this.page.locator(locators.messages.success);
   }
 
   async getError() {
-    return this.page.locator(this.locators.messages.error);
+    return this.page.locator(locators.messages.error);
   }
 
   async clickDOB() {
-    await this.page.click(this.locators.fields.dob);
+    await this.page.click(locators.fields.dob);
   }
 
   async enterDOB(date) {
-    await this.page.fill(this.locators.fields.dob, date);
+    await this.page.fill(locators.fields.dob, date);
   }
 
   async uploadFile(file) {
-    await this.page.setInputFiles(this.locators.fields.upload, file);
+    await this.page.setInputFiles(locators.fields.upload, file);
   }
 
   async clickClose() {
-    await this.page.click(this.locators.buttons.close);
+    await this.page.click(locators.buttons.close);
+  }
+
+ async waitForDialog() {
+    await this.page.waitForSelector(locators.dialog);
+  }
+
+  async selectAllergy(value) {
+    await this.page.selectOption(locators.dropdowns.allergy, value);
+  }
+
+  async selectFoodPreference(value) {
+    await this.page.selectOption(locators.dropdowns.foodPreference, value);
+  }
+
+  async selectCuisine(value) {
+    await this.page.selectOption(locators.dropdowns.cuisine, value);
+  }
+
+  async getSelectedValue(selector) {
+    return await this.page.$eval(selector, el => el.value);
+  }
+
+  async clickDOB() {
+    await this.page.click(locators.fields.dob);
+  }
+
+  async fillDOB(value) {
+    await this.page.fill(locators.fields.dob, value);
+  }
+
+  async getDOBValue() {
+    return await this.page.inputValue(locators.fields.dob);
   }
 }
 
