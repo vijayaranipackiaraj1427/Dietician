@@ -10,4 +10,5 @@ Feature: Login page UI verification
     
   Scenario: Navigation bar icon visibility
     Then User should see the home icon on left side of navigation bar
+
    

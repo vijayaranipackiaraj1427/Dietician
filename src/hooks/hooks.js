@@ -72,6 +72,7 @@
 const { Before, After, BeforeAll, AfterAll, Status } = require('@cucumber/cucumber');
 const { chromium } = require('playwright');
 const logger = require('../utils/logger');
+const path = require('path');
 
 let browser;
 
@@ -82,8 +83,18 @@ BeforeAll(async function () {
 
 Before(async function (scenario) {
   logger.info(`Starting scenario: ${scenario.pickle.name}`);
-  this.context = await browser.newContext();
+   const browserType = process.env.BROWSER || 'chromium';
+
+  const browsers = {
+    chromium,
+    firefox,
+    webkit
+  };
+
+  this.browser = await browsers[browserType].launch({ headless: false });
+  this.context = await this.browser.newContext();
   this.page = await this.context.newPage();
+ 
 });
 
 

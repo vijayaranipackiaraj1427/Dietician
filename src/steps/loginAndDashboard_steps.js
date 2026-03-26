@@ -1,5 +1,5 @@
 const { Given, When, Then } = require('@cucumber/cucumber');
-const LoginAndDashboardPage = require('../../src/pages/LoginAndDashboard.page');
+const LoginAndDashboardPage = require('../pages/LoginAndDashboardPage');
 
 const logger = require('../utils/logger');
 logger.info('Logger test successful');
