@@ -24,8 +24,7 @@ BeforeAll(async function () {
 
   logger.info(`Browser launched: ${browserName}`);
 
-  //logger.info('Starting test execution');
-  //browser = await chromium.launch({ headless: false });
+ 
 });
 
 
