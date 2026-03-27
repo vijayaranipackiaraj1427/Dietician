@@ -10,8 +10,11 @@ module.exports = {
     paths: ["src/features/*.feature"],
     format: [
       "progress",
-      "json:reports/json/cucumber_report.json" 
-    ]
+      "json:reports/json/cucumber_report.json"  
+    ],
+    retry: 1,
+     parallel: 2  
+
   },
 
   //run only specific features 
@@ -32,13 +35,47 @@ module.exports = {
 
       
     ],
+     retry: 1,
+     parallel: 2  ,
 
     formatOptions: {
     resultsDir: "allure-results"
+    
 
-    }
+  }
+  
 
-  },
+},
+ addPatient: {
+    require: [
+      "src/steps/addPatientSteps.js",
+      "src/hooks/hooks.js"
+    ],
+
+    paths: [
+      "src/features/addPatient.feature"
+    ],
+    tags: "@addPatient",
+
+    format: [
+      "progress",
+
+      "json:reports/json/addPatient_report.json",
+      "html:reports/html/addPatient_report.html",
+      "junit:reports/junit/addPatient_junit.xml",
+
+      "allure-cucumberjs/reporter"
+    ],
+
+    formatOptions: {
+      resultsDir: "allure-results"
+    },
+
+    // retry failed scenarios 
+    retry: 1,
+     parallel: 2  
+
+    },
 
 //Login functional profile 
 
