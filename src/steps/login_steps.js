@@ -1,6 +1,6 @@
 const { Given, When, Then } = require('@cucumber/cucumber');
-const LoginPage = require('../pages/login.page');
-const data = require('../utils/testData');
+const LoginPage = require('../pages/login.page.js');
+const data = require('../utils/testData.js');
 const { expect } = require('@playwright/test');
 
 Given('user is on login page', async function () {
