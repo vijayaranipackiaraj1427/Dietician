@@ -3,15 +3,16 @@ const config = require('../config/config');
 
 const logger = require('../utils/logger');
 
-const locators = require('../locators/LoginAndDashboard.locators');
+const locators = require('../locators/login.locator');
 
-class LoginAndDashboardPage {
+class LoginUIPage {
 
   constructor(page) {
     this.page = page;
-    this.username = page.locator(locators.username);
-    this.password = page.locator(locators.password);
+    this.username = page.locator(locators.usernameInput);
+    this.password = page.locator(locators.passwordInput);
     this.loginBtn = page.locator(locators.loginBtn);
+
     this.navigationBar = page.locator(locators.navigationBar);
     this.navBarHomeIcon = page.locator(locators.navBarHomeIcon);
 
@@ -143,11 +144,5 @@ class LoginAndDashboardPage {
 }
 
 
-module.exports = LoginAndDashboardPage;
+module.exports = LoginUIPage;
 
-
-//   async verifyLoginBtnColor(){
-
-//   await expect(this.loginBtn).toBeVisible();
-//   logger.info('Login Button is displayed');
-// }
