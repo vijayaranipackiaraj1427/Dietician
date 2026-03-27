@@ -15,7 +15,6 @@ Given('User is on the browser', async function () {
 When('user enters app url', async function () {
 
  logger.info('Navigating to Login Page');
- 
  await this.loginUIPage.navigateToLoginPage();
 
 });
