@@ -22,7 +22,7 @@ reporter.generate({
     title: 'Test Execution Info',
     data: [
       { label: 'Project', value: 'Dietician Automation' },
-      { label: 'Module', value: 'Login And Dashboard' },
+      { label: 'Module', value: 'loginUIPage' },
       { label: 'Execution Time', value: new Date().toLocaleString() }
     ]
   }
