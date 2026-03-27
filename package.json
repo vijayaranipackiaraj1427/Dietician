@@ -31,7 +31,8 @@
 
     "test:loginFunctional:chrome": "set BROWSER=chromium && npx cucumber-js --profile loginFunctional",
     "test:loginFunctional:firefox": "set BROWSER=firefox && npx cucumber-js --profile loginFunctional",
-    "test:loginFunctional:webkit": "set BROWSER=webkit && npx cucumber-js --profile loginFunctional"
+    "test:loginFunctional:webkit": "set BROWSER=webkit && npx cucumber-js --profile loginFunctional",
+    "test:full:report": "npm run clean:reports && (npx cucumber-js --profile default || exit /b 0) && node src/utils/report.js && npx allure generate allure-results --clean -o allure-report"
 
     
   },

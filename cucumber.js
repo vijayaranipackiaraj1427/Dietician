@@ -1,6 +1,3 @@
-//const path = require("path");  //added this line as there was an error 
-
-
 module.exports = {
   default: {
     require: [
@@ -10,8 +7,14 @@ module.exports = {
     paths: ["src/features/*.feature"],
     format: [
       "progress",
-      "json:reports/json/cucumber_report.json"  
+      "json:reports/json/cucumber_report.json",
+      //get allure results 
+      "allure-cucumberjs/reporter" 
     ],
+     
+    formatOptions: {
+      resultsDir: "allure-results"   
+    },
     retry: 1,
      parallel: 2  
 
